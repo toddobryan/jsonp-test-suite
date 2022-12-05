@@ -17,6 +17,7 @@ package org.leadpony.jsonp.testsuite.tests;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.StringReader;
 import java.util.stream.Stream;
 
 import jakarta.json.Json;
@@ -261,7 +262,7 @@ public class JsonPatchBuilderTest {
         JsonPatchBuilder sut = Json.createPatchBuilder()
             .move(path, from);
         JsonArray actual = sut.build().toJsonArray();
-        assertThat(actual).asString().isEqualTo(expected);
+        assertThat(actual).isEqualTo(Json.createReader(new StringReader(expected)).read());
     }
 
     public static Stream<Arguments> copyShouldAppendCopyOperation() {
@@ -278,7 +279,7 @@ public class JsonPatchBuilderTest {
         JsonPatchBuilder sut = Json.createPatchBuilder()
             .copy(path, from);
         JsonArray actual = sut.build().toJsonArray();
-        assertThat(actual).asString().isEqualTo(expected);
+        assertThat(actual).isEqualTo(Json.createReader(new StringReader(expected)).read());
     }
 
     public static Stream<Arguments> testShouldAppendTestOperationWithJsonValue() {

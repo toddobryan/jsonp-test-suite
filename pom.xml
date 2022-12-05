@@ -252,6 +252,20 @@
                 <jsonp.provider>joy</jsonp.provider>
             </properties>
         </profile>
+        <profile>
+            <id>test-with-jsonp-kotlin</id>
+            <dependencies>
+                <dependency>
+                    <groupId>com.toddobryan</groupId>
+                    <artifactId>jsonp-kotlin</artifactId>
+                    <version>0.1-SNAPSHOT</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <properties>
+                <jsonp.provider>jsonp-kotlin</jsonp.provider>
+            </properties>
+        </profile>
     </profiles>
 
     <url>https://github.com/leadpony/jsonp-test-suite</url>
